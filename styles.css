@@ -683,15 +683,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .screenshots-carousel .screenshot-img {
     border-radius: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.screenshot-wrapper {
+    position: relative;
+    width: 100%;
 }
 
 .screenshot-item {
-    display: none;
-    animation: fadeIn 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.screenshot-item:first-child {
+    position: relative;
 }
 
 .screenshot-item.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
 }
 
 .screenshot-nav {
