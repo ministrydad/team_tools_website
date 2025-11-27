@@ -1379,6 +1379,54 @@ h1, h2, h3, h4, h5, h6 {
         transform: rotate(-45deg) translate(5px, -5px);
     }
     
+    /* Hero mobile fixes */
+    .hero-logo-full {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .hero-logo-img {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero-cta {
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+    
+    .hero-cta-note {
+        text-align: center;
+    }
+    
+    .hero-visual {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .hero-screenshot {
+        margin: 0 calc(-1 * var(--space-md));
+        border-radius: 0;
+    }
+    
+    .hero-screenshot .screenshot-img {
+        border-radius: 0;
+        width: 100%;
+    }
+    
     .ps-grid {
         grid-template-columns: 1fr;
     }
@@ -1421,6 +1469,10 @@ h1, h2, h3, h4, h5, h6 {
     .footer-brand {
         margin-bottom: var(--space-lg);
     }
+    
+    .footer-logo {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1429,8 +1481,8 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .btn-large {
-        padding: 14px 24px;
-        font-size: 1rem;
+        padding: 14px 20px;
+        font-size: 0.9375rem;
     }
     
     .pricing-number {
@@ -1439,5 +1491,34 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-scroll {
         display: none;
+    }
+    
+    .hero-logo-img {
+        max-width: 240px;
+    }
+    
+    .hero-description {
+        font-size: 0.9375rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    /* Screenshots carousel mobile */
+    .screenshots-carousel {
+        margin-left: calc(-1 * var(--space-md));
+        margin-right: calc(-1 * var(--space-md));
+        border-radius: 0;
+    }
+    
+    .screenshot-nav {
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+    
+    .screenshot-nav-btn {
+        padding: 8px 12px;
+        font-size: 0.8125rem;
     }
 }
