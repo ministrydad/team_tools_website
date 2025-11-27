@@ -14,18 +14,16 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Favicon placeholder -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐓</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo-rooster.png">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <div class="logo-placeholder" id="logo-placeholder">
-                    <!-- Logo will go here -->
-                    <span class="logo-text">Team Tools Pro</span>
-                </div>
+                <img src="images/logo-rooster.png" alt="Team Tools Pro" class="nav-logo-img">
+                <span class="nav-logo-text">Team Tools Pro</span>
             </a>
             
             <div class="nav-links" id="nav-links">
@@ -54,10 +52,9 @@
         
         <div class="container hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="hero-title-main">Team Tools Pro</span>
-                    <span class="hero-title-sub">Ministry Simplified</span>
-                </h1>
+                <div class="hero-logo-full">
+                    <img src="images/logo-full.png" alt="Team Tools Pro - Ministry Simplified" class="hero-logo-img">
+                </div>
                 
                 <p class="hero-description">
                     The complete management platform for Tres Dias, Walk to Emmaus, Cursillo, and retreat ministry communities. Replace spreadsheets and paper with one powerful, easy-to-use tool.
@@ -76,19 +73,11 @@
             
             <div class="hero-visual">
                 <div class="hero-screenshot">
-                    <div class="screenshot-placeholder">
-                        <div class="screenshot-placeholder-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                                <path d="M8 21h8M12 17v4"/>
-                            </svg>
-                        </div>
-                        <span>Dashboard Screenshot</span>
-                    </div>
+                    <img src="images/screenshot-dashboard.png" alt="Team Tools Pro Dashboard" class="screenshot-img">
                 </div>
                 <div class="hero-float hero-float-1">
-                    <span class="float-stat">50+</span>
-                    <span class="float-label">Team Members</span>
+                    <span class="float-stat">500+</span>
+                    <span class="float-label">Members Managed</span>
                 </div>
                 <div class="hero-float hero-float-2">
                     <span class="float-icon">✓</span>
@@ -281,53 +270,19 @@
             
             <div class="screenshots-carousel">
                 <div class="screenshot-item active" data-index="0">
-                    <div class="screenshot-placeholder screenshot-large">
-                        <div class="screenshot-placeholder-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <span>Community Directory</span>
-                    </div>
+                    <img src="images/screenshot-directory.png" alt="Community Directory" class="screenshot-img">
                 </div>
                 <div class="screenshot-item" data-index="1">
-                    <div class="screenshot-placeholder screenshot-large">
-                        <div class="screenshot-placeholder-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
-                                <rect x="9" y="3" width="6" height="4" rx="1"/>
-                            </svg>
-                        </div>
-                        <span>Team Roster</span>
-                    </div>
+                    <img src="images/screenshot-team-list.png" alt="Team Roster" class="screenshot-img">
                 </div>
                 <div class="screenshot-item" data-index="2">
-                    <div class="screenshot-placeholder screenshot-large">
-                        <div class="screenshot-placeholder-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <path d="M9 16l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <span>Meeting Check-In</span>
-                    </div>
+                    <img src="images/screenshot-checkin.png" alt="Meeting Check-In" class="screenshot-img">
                 </div>
                 <div class="screenshot-item" data-index="3">
-                    <div class="screenshot-placeholder screenshot-large">
-                        <div class="screenshot-placeholder-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="7" height="7"/>
-                                <rect x="14" y="3" width="7" height="7"/>
-                                <rect x="14" y="14" width="7" height="7"/>
-                                <rect x="3" y="14" width="7" height="7"/>
-                            </svg>
-                        </div>
-                        <span>Table Planner</span>
-                    </div>
+                    <img src="images/screenshot-tables.png" alt="Table Planner" class="screenshot-img">
+                </div>
+                <div class="screenshot-item" data-index="4">
+                    <img src="images/screenshot-profile.png" alt="Member Profile" class="screenshot-img">
                 </div>
             </div>
             
@@ -336,6 +291,7 @@
                 <button class="screenshot-nav-btn" data-index="1">Team Roster</button>
                 <button class="screenshot-nav-btn" data-index="2">Check-In</button>
                 <button class="screenshot-nav-btn" data-index="3">Table Planner</button>
+                <button class="screenshot-nav-btn" data-index="4">Member Profile</button>
             </div>
         </div>
     </section>
@@ -646,6 +602,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
+                        <img src="images/logo-rooster.png" alt="Team Tools Pro" class="footer-logo-img">
                         <span class="logo-text">Team Tools Pro</span>
                     </div>
                     <p class="footer-tagline">Ministry Simplified</p>
