@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initFloatingLabels();
     initLegalModals();
+    initAnalyticsTracking();
 });
 
 /* Navigation */
@@ -366,6 +367,60 @@ function initLegalModals() {
                 document.body.style.overflow = '';
             });
         }
+    });
+}
+
+/* Google Analytics Event Tracking */
+function initAnalyticsTracking() {
+    // Track "Start Free Trial" button clicks
+    document.querySelectorAll('a.btn-primary').forEach(btn => {
+        if (btn.textContent.includes('Trial') || btn.textContent.includes('Free')) {
+            btn.addEventListener('click', function() {
+                gtag('event', 'click_start_trial', {
+                    'event_category': 'engagement',
+                    'event_label': 'Start Free Trial Button'
+                });
+            });
+        }
+    });
+    
+    // Track "Sign In" clicks
+    document.querySelectorAll('a').forEach(link => {
+        if (link.textContent.trim() === 'Sign In') {
+            link.addEventListener('click', function() {
+                gtag('event', 'click_sign_in', {
+                    'event_category': 'engagement',
+                    'event_label': 'Sign In Link'
+                });
+            });
+        }
+    });
+    
+    // Track contact form submissions
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function() {
+            gtag('event', 'form_submit', {
+                'event_category': 'engagement',
+                'event_label': 'Contact Form'
+            });
+        });
+    }
+    
+    // Track scroll depth (25%, 50%, 75%, 100%)
+    let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        
+        [25, 50, 75, 100].forEach(mark => {
+            if (scrollPercent >= mark && !scrollMarks[mark]) {
+                scrollMarks[mark] = true;
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': mark + '% scrolled'
+                });
+            }
+        });
     });
 }
 
