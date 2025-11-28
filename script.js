@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initScrollAnimations();
     initFloatingLabels();
+    initLegalModals();
 });
 
 /* Navigation */
@@ -323,6 +324,47 @@ function setSignInUrl(url) {
     document.querySelectorAll('a').forEach(link => {
         if (link.textContent.trim() === 'Sign In') {
             link.href = url;
+        }
+    });
+}
+
+/* Legal Modals */
+function initLegalModals() {
+    const modalLinks = document.querySelectorAll('[data-modal]');
+    
+    modalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const modalId = this.dataset.modal;
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Close modal on overlay click or close button
+    document.querySelectorAll('.legal-modal').forEach(modal => {
+        const overlay = modal.querySelector('.legal-modal-overlay');
+        const closeBtn = modal.querySelector('.legal-modal-close');
+        
+        const closeModal = () => {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+        
+        overlay.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+    });
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.legal-modal.open').forEach(modal => {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            });
         }
     });
 }
