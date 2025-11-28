@@ -140,9 +140,8 @@ function initContactForm() {
         };
         
         try {
-            // Send to Resend via your API endpoint
-            // Replace this URL with your actual API endpoint
-            const response = await fetch('https://your-api-endpoint.com/api/contact', {
+            // Send to Supabase Edge Function
+            const response = await fetch('https://jtubjrksomudwjdhgmss.supabase.co/functions/v1/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -150,22 +149,17 @@ function initContactForm() {
                 body: JSON.stringify(formData)
             });
             
+            const data = await response.json();
+            
             if (response.ok) {
                 showFormStatus('success', 'Thank you for your message! We\'ll get back to you soon.');
                 form.reset();
             } else {
-                throw new Error('Failed to send message');
+                throw new Error(data.error || 'Failed to send message');
             }
         } catch (error) {
             console.error('Form submission error:', error);
-            
-            // For now, show success since the API endpoint isn't set up yet
-            // In production, this would show an error
-            showFormStatus('success', 'Thank you for your message! We\'ll get back to you soon.');
-            form.reset();
-            
-            // Uncomment this for production error handling:
-            // showFormStatus('error', 'Sorry, there was an error sending your message. Please email us directly at support@teamtoolspro.com');
+            showFormStatus('error', 'Sorry, there was an error sending your message. Please email us directly at philip@teamtoolspro.com');
         } finally {
             btnText.style.display = 'inline';
             btnLoading.style.display = 'none';
