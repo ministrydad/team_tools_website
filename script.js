@@ -244,50 +244,78 @@ function initFloatingLabels() {
         'Weekend History'
     ];
     
-    const float1 = document.querySelector('.hero-float-1 .float-label');
-    const float2 = document.querySelector('.hero-float-2 .float-label');
+    const positions = ['pos-top', 'pos-mid', 'pos-bot'];
     
-    if (!float1 || !float2) return;
+    const float1 = document.querySelector('.hero-float-1');
+    const float2 = document.querySelector('.hero-float-2');
+    const label1 = float1?.querySelector('.float-label');
+    const label2 = float2?.querySelector('.float-label');
+    
+    if (!float1 || !float2 || !label1 || !label2) return;
     
     let index1 = 0;
     let index2 = 1;
-    let currentFloat = 1; // Alternate which float changes
+    let posIndex1 = 0;
+    let posIndex2 = 2;
+    let currentFloat = 1;
+    
+    // Set initial positions
+    float1.classList.add(positions[posIndex1]);
+    float2.classList.add(positions[posIndex2]);
     
     setInterval(() => {
         if (currentFloat === 1) {
-            // Fade out float 1
-            const floatEl = document.querySelector('.hero-float-1');
-            floatEl.style.opacity = '0';
+            // Fade out float 1 (slides right)
+            float1.classList.add('fade-out');
+            float1.classList.remove('fade-in');
             
             setTimeout(() => {
-                // Update to next benefit (skip the one showing in float2)
+                // Update benefit text
                 do {
                     index1 = (index1 + 2) % benefits.length;
                 } while (index1 === index2);
+                label1.textContent = benefits[index1];
                 
-                float1.textContent = benefits[index1];
-                floatEl.style.opacity = '1';
-            }, 400);
+                // Change position
+                float1.classList.remove(positions[posIndex1]);
+                do {
+                    posIndex1 = (posIndex1 + 1) % positions.length;
+                } while (posIndex1 === posIndex2);
+                float1.classList.add(positions[posIndex1]);
+                
+                // Fade in (slides from right)
+                float1.classList.remove('fade-out');
+                float1.classList.add('fade-in');
+            }, 600);
             
             currentFloat = 2;
         } else {
-            // Fade out float 2
-            const floatEl = document.querySelector('.hero-float-2');
-            floatEl.style.opacity = '0';
+            // Fade out float 2 (slides left)
+            float2.classList.add('fade-out');
+            float2.classList.remove('fade-in');
             
             setTimeout(() => {
-                // Update to next benefit (skip the one showing in float1)
+                // Update benefit text
                 do {
                     index2 = (index2 + 2) % benefits.length;
                 } while (index2 === index1);
+                label2.textContent = benefits[index2];
                 
-                float2.textContent = benefits[index2];
-                floatEl.style.opacity = '1';
-            }, 400);
+                // Change position
+                float2.classList.remove(positions[posIndex2]);
+                do {
+                    posIndex2 = (posIndex2 + 1) % positions.length;
+                } while (posIndex2 === posIndex1);
+                float2.classList.add(positions[posIndex2]);
+                
+                // Fade in (slides from left)
+                float2.classList.remove('fade-out');
+                float2.classList.add('fade-in');
+            }, 600);
             
             currentFloat = 1;
         }
-    }, 3000);
+    }, 3500);
 }
 
 /* Utility: Update sign-in URL */

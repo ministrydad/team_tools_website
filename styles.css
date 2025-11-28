@@ -432,20 +432,52 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: var(--space-md);
     animation: float 3s ease-in-out infinite;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .hero-float-1 {
-    top: 10%;
     right: -20px;
+    top: 10%;
     animation-delay: 0s;
 }
 
 .hero-float-2 {
-    bottom: 15%;
     left: -30px;
+    bottom: 15%;
     animation-delay: 1.5s;
 }
+
+/* Slide-in states for right-side float */
+.hero-float-1.fade-out {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.hero-float-1.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide-in states for left-side float */
+.hero-float-2.fade-out {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.hero-float-2.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Position variations for right-side float */
+.hero-float-1.pos-top { top: 5%; }
+.hero-float-1.pos-mid { top: 40%; }
+.hero-float-1.pos-bot { top: 75%; }
+
+/* Position variations for left-side float */
+.hero-float-2.pos-top { top: 10%; bottom: auto; }
+.hero-float-2.pos-mid { top: 45%; bottom: auto; }
+.hero-float-2.pos-bot { top: auto; bottom: 10%; }
 
 .float-stat {
     font-size: 1.5rem;
