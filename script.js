@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScreenshotCarousel();
     initContactForm();
     initScrollAnimations();
+    initFloatingLabels();
 });
 
 /* Navigation */
@@ -230,6 +231,63 @@ function setSignupUrl(url) {
             btn.href = url;
         }
     });
+}
+
+/* Floating Labels Rotation */
+function initFloatingLabels() {
+    const benefits = [
+        'Full Service Records',
+        'Instant Access',
+        'Real-Time Check-In',
+        'Automated Reports',
+        'Secure Cloud Storage',
+        'Weekend History'
+    ];
+    
+    const float1 = document.querySelector('.hero-float-1 .float-label');
+    const float2 = document.querySelector('.hero-float-2 .float-label');
+    
+    if (!float1 || !float2) return;
+    
+    let index1 = 0;
+    let index2 = 1;
+    let currentFloat = 1; // Alternate which float changes
+    
+    setInterval(() => {
+        if (currentFloat === 1) {
+            // Fade out float 1
+            const floatEl = document.querySelector('.hero-float-1');
+            floatEl.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Update to next benefit (skip the one showing in float2)
+                do {
+                    index1 = (index1 + 2) % benefits.length;
+                } while (index1 === index2);
+                
+                float1.textContent = benefits[index1];
+                floatEl.style.opacity = '1';
+            }, 400);
+            
+            currentFloat = 2;
+        } else {
+            // Fade out float 2
+            const floatEl = document.querySelector('.hero-float-2');
+            floatEl.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Update to next benefit (skip the one showing in float1)
+                do {
+                    index2 = (index2 + 2) % benefits.length;
+                } while (index2 === index1);
+                
+                float2.textContent = benefits[index2];
+                floatEl.style.opacity = '1';
+            }, 400);
+            
+            currentFloat = 1;
+        }
+    }, 3000);
 }
 
 /* Utility: Update sign-in URL */

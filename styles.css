@@ -432,6 +432,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: var(--space-md);
     animation: float 3s ease-in-out infinite;
+    transition: opacity 0.4s ease;
 }
 
 .hero-float-1 {
