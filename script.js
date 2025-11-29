@@ -429,6 +429,7 @@ function initPhoneShowcase() {
     
     let currentVideo = 1;
     let autoRotateInterval;
+    let userHasInteracted = false;
     
     function switchToVideo(num) {
         currentVideo = num;
@@ -462,17 +463,19 @@ function initPhoneShowcase() {
             const videoNum = parseInt(this.dataset.video);
             switchToVideo(videoNum);
             
-            // Reset auto-rotate timer on manual click
+            // Stop auto-rotate permanently after user interaction
+            userHasInteracted = true;
             clearInterval(autoRotateInterval);
-            startAutoRotate();
         });
     });
     
-    // Auto-rotate every 8 seconds
+    // Auto-rotate every 8 seconds (only until user interacts)
     function startAutoRotate() {
         autoRotateInterval = setInterval(() => {
-            const nextVideo = currentVideo === 1 ? 2 : 1;
-            switchToVideo(nextVideo);
+            if (!userHasInteracted) {
+                const nextVideo = currentVideo === 1 ? 2 : 1;
+                switchToVideo(nextVideo);
+            }
         }, 8000);
     }
     
