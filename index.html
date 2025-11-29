@@ -277,39 +277,50 @@
                 <p class="section-subtitle">Fully optimized for phones and tablets — manage your community on the go</p>
             </div>
             
-            <div class="mobile-showcase-grid">
-                <div class="phone-mockup-container">
-                    <div class="phone-mockup">
-                        <div class="phone-frame">
-                            <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <video autoplay muted loop playsinline>
-                                    <source src="videos/directory_recording_mobile.mp4" type="video/mp4">
-                                </video>
-                            </div>
+            <div class="mobile-showcase-content">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <video id="phone-video-1" class="phone-video active" autoplay muted loop playsinline>
+                                <source src="videos/directory_recording_mobile.mp4" type="video/mp4">
+                            </video>
+                            <video id="phone-video-2" class="phone-video" muted loop playsinline>
+                                <source src="videos/team_checkin_mobile.mp4" type="video/mp4">
+                            </video>
                         </div>
-                    </div>
-                    <div class="phone-label">
-                        <h3>Member Profiles</h3>
-                        <p>Full service history, contact info, and role eligibility — all at your fingertips</p>
                     </div>
                 </div>
                 
-                <div class="phone-mockup-container">
-                    <div class="phone-mockup">
-                        <div class="phone-frame">
-                            <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <video autoplay muted loop playsinline>
-                                    <source src="videos/team_checkin_mobile.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="phone-label">
-                        <h3>Meeting Check-In</h3>
-                        <p>One-tap attendance tracking — no more paper sign-in sheets</p>
-                    </div>
+                <div class="phone-toggle-container">
+                    <button class="phone-toggle-btn active" data-video="1">
+                        <span class="toggle-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </span>
+                        <span class="toggle-text">
+                            <strong>Member Profiles</strong>
+                            <small>Service history at your fingertips</small>
+                        </span>
+                    </button>
+                    <button class="phone-toggle-btn" data-video="2">
+                        <span class="toggle-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                                <path d="M9 16l2 2 4-4"/>
+                            </svg>
+                        </span>
+                        <span class="toggle-text">
+                            <strong>Meeting Check-In</strong>
+                            <small>One-tap attendance tracking</small>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>

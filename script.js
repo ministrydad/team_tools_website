@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFloatingLabels();
     initLegalModals();
     initAnalyticsTracking();
+    initPhoneShowcase();
 });
 
 /* Navigation */
@@ -416,6 +417,66 @@ function initAnalyticsTracking() {
             }
         });
     });
+}
+
+/* Phone Showcase Toggle */
+function initPhoneShowcase() {
+    const video1 = document.getElementById('phone-video-1');
+    const video2 = document.getElementById('phone-video-2');
+    const toggleBtns = document.querySelectorAll('.phone-toggle-btn');
+    
+    if (!video1 || !video2 || !toggleBtns.length) return;
+    
+    let currentVideo = 1;
+    let autoRotateInterval;
+    
+    function switchToVideo(num) {
+        currentVideo = num;
+        
+        // Update videos
+        if (num === 1) {
+            video1.classList.add('active');
+            video2.classList.remove('active');
+            video1.play();
+            video2.pause();
+        } else {
+            video2.classList.add('active');
+            video1.classList.remove('active');
+            video2.play();
+            video1.pause();
+        }
+        
+        // Update buttons
+        toggleBtns.forEach(btn => {
+            if (parseInt(btn.dataset.video) === num) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+    
+    // Manual toggle
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const videoNum = parseInt(this.dataset.video);
+            switchToVideo(videoNum);
+            
+            // Reset auto-rotate timer on manual click
+            clearInterval(autoRotateInterval);
+            startAutoRotate();
+        });
+    });
+    
+    // Auto-rotate every 8 seconds
+    function startAutoRotate() {
+        autoRotateInterval = setInterval(() => {
+            const nextVideo = currentVideo === 1 ? 2 : 1;
+            switchToVideo(nextVideo);
+        }, 8000);
+    }
+    
+    startAutoRotate();
 }
 
 // Example usage (uncomment and update when ready):
