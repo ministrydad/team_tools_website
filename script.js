@@ -159,7 +159,7 @@ function initContactForm() {
             }
         } catch (error) {
             console.error('Form submission error:', error);
-            showFormStatus('error', 'Sorry, there was an error sending your message. Please email us directly at philip@teamtoolspro.com');
+            showFormStatus('error', 'Sorry, there was an error sending your message. Please email us directly at support@teamtoolspro.com');
         } finally {
             btnText.style.display = 'inline';
             btnLoading.style.display = 'none';
