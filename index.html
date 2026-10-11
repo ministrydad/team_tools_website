@@ -1,41 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4152402275000570');
-fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=4152402275000570&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Tools Pro | Management Software for Tres Dias, Emmaus & Cursillo</title>
-    <meta name="description" content="The complete management platform for Tres Dias, Walk to Emmaus, Cursillo, and three-day retreat ministries. Replace spreadsheets with one powerful tool. Start your free 21-day trial.">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0280W3MDRW"></script>
+    <meta name="description" content="The complete management platform for Tres Dias, Walk to Emmaus, Cursillo, and three-day retreat ministries. Replace spreadsheets with one powerful tool. Start your free 60-day trial.">
+
+    <!-- ============================================================
+         PRIVACY GATE — must run before any analytics or advertising.
+         Honors the browser's Global Privacy Control signal and a
+         per-device opt-out, as promised in privacy.html section 8.
+         Do not move tracking above this block.
+         ============================================================ -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0280W3MDRW');
+    (function () {
+        var KEY = 'ttp-opt-out';
+
+        function optedOut() {
+            // Storage throws in private mode and when site data is blocked.
+            try { return window.localStorage.getItem(KEY) === '1'; }
+            catch (e) { return false; }
+        }
+
+        function gpcEnabled() {
+            return navigator.globalPrivacyControl === true;
+        }
+
+        window.ttpTrackingAllowed = function () {
+            return !gpcEnabled() && !optedOut();
+        };
+
+        window.ttpOptOut = function () {
+            try { window.localStorage.setItem(KEY, '1'); return true; }
+            catch (e) { return false; }
+        };
+
+        window.ttpOptIn = function () {
+            try { window.localStorage.removeItem(KEY); return true; }
+            catch (e) { return false; }
+        };
+
+        // Define these unconditionally so page code can call them safely
+        // whether or not the real libraries are ever allowed to load.
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.fbq = window.fbq || function () {};
+    })();
     </script>
-    
+
+    <!-- Google Analytics — loaded only when tracking is allowed -->
+    <script>
+    if (window.ttpTrackingAllowed()) {
+        var ttpGa = document.createElement('script');
+        ttpGa.async = true;
+        ttpGa.src = 'https://www.googletagmanager.com/gtag/js?id=G-0280W3MDRW';
+        document.head.appendChild(ttpGa);
+        gtag('js', new Date());
+        gtag('config', 'G-0280W3MDRW');
+    }
+    </script>
+
+    <!-- Meta Pixel — loaded only when tracking is allowed -->
+    <script>
+    if (window.ttpTrackingAllowed()) {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq&&f.fbq.loaded)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '4152402275000570');
+        fbq('track', 'PageView');
+    }
+    </script>
+    <!-- The Meta <noscript> fallback pixel was removed deliberately. With
+         JavaScript disabled the Global Privacy Control signal cannot be
+         read, so that fallback would have tracked people who asked not
+         to be. The lost data is negligible; the promise is not. -->
+
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,15 +89,36 @@ fbq('track', 'PageView');
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     
+    <!-- Canonical -->
+    <link rel="canonical" href="https://teamtoolspro.com/">
+
+    <!-- Social sharing (Facebook, LinkedIn, iMessage, Slack) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Team Tools Pro">
+    <meta property="og:url" content="https://teamtoolspro.com/">
+    <meta property="og:title" content="Team Tools Pro | Ministry Simplified">
+    <meta property="og:description" content="Run your whole weekend in one place — rosters, candidates, music, RSVPs, and budget. Built for Tres Dias, Walk to Emmaus, and Cursillo communities.">
+    <meta property="og:image" content="https://teamtoolspro.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Team Tools Pro — Ministry Simplified">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Team Tools Pro | Ministry Simplified">
+    <meta name="twitter:description" content="Run your whole weekend in one place — rosters, candidates, music, RSVPs, and budget.">
+    <meta name="twitter:image" content="https://teamtoolspro.com/images/og-image.jpg">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/TEAM TOOLS PRO.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="images/TEAM TOOLS PRO.png" alt="Team Tools Pro" class="nav-logo-img">
+                <img src="images/favicon-192.png" alt="" width="192" height="192" class="nav-logo-img">
                 <span class="nav-logo-text">Team Tools Pro</span>
             </a>
             
@@ -92,7 +158,7 @@ fbq('track', 'PageView');
                 
                 <div class="hero-cta">
                     <a href="https://app.teamtoolspro.com" class="btn btn-primary btn-large">
-                        Start Your Free 21-Day Trial
+                        Start Your Free 60-Day Trial
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
@@ -258,8 +324,8 @@ fbq('track', 'PageView');
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                         </svg>
                     </div>
-                    <h3>Budget & Financial Reports</h3>
-                    <p>Allocate budgets by role, track disbursements, and generate treasurer reports with one click.</p>
+                    <h3>Budget & Financial Tracking</h3>
+                    <p>Track weekend <em>and</em> year-round community finances. Allocate by role, log income and expenses, and generate treasurer reports with one click.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -286,6 +352,45 @@ fbq('track', 'PageView');
                     <h3>PDF Reports & Exports</h3>
                     <p>Generate professional rosters, directories, candidate lists, and financial reports — ready to print or share.</p>
                 </div>
+
+                <div class="feature-card">
+                    <span class="feature-badge">New</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                            <path d="M7 8h7M7 12h5"/>
+                        </svg>
+                    </div>
+                    <h3>Lyrics Slides & Song Sheets</h3>
+                    <p>Build worship slides for team meetings and weekends right in the app. Present them full screen, and print matching song sheets for the room.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-badge">New</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M9 18V5l12-2v13"/>
+                            <circle cx="6" cy="18" r="3"/>
+                            <circle cx="18" cy="16" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>The Music Stand</h3>
+                    <p>Chord charts for your worship team on iPad — create, edit, and mark them up. Turn pages hands-free with a Bluetooth foot pedal while you play.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-badge">New</span>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+                            <polyline points="2.5 6.5 12 13 21.5 6.5"/>
+                            <path d="M8 21l2.5 -2.5L13 21"/>
+                        </svg>
+                    </div>
+                    <h3>Event RSVPs</h3>
+                    <p>Send invitations for Secuelas, reunions, and community gatherings. Members RSVP in a tap, and you get a live headcount instead of a text thread.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -304,11 +409,17 @@ fbq('track', 'PageView');
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <video id="phone-video-1" class="phone-video active" autoplay muted loop playsinline>
-                                <source src="videos/directory_recording_mobile.mp4" type="video/mp4">
+                            <video id="phone-video-1" class="phone-video active" autoplay muted loop playsinline
+                                   preload="metadata" width="444" height="960"
+                                   poster="videos/directory_recording_mobile-web-poster.jpg"
+                                   aria-label="Screen recording of the community directory on a phone">
+                                <source src="videos/directory_recording_mobile-web.mp4" type="video/mp4">
                             </video>
-                            <video id="phone-video-2" class="phone-video" muted loop playsinline>
-                                <source src="videos/team_checkin_mobile.mp4" type="video/mp4">
+                            <video id="phone-video-2" class="phone-video" muted loop playsinline
+                                   preload="none" width="444" height="960"
+                                   poster="videos/team_checkin_mobile-web-poster.jpg"
+                                   aria-label="Screen recording of team check-in on a phone">
+                                <source src="videos/team_checkin_mobile-web.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -452,70 +563,57 @@ fbq('track', 'PageView');
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Simple, Transparent Pricing</h2>
-                <p class="section-subtitle">One plan. Everything included. No surprises.</p>
+                <p class="section-subtitle">Every feature on both plans. No tiers, no add-ons, no surprises.</p>
             </div>
             
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <span class="pricing-label">Annual Subscription</span>
-                    <div class="pricing-amount">
-                        <span class="pricing-currency">$</span>
-                        <span class="pricing-number">500</span>
-                        <span class="pricing-period">/ year</span>
+            <div class="plans">
+
+                <div class="plan plan-featured">
+                    <div class="plan-body">
+                        <span class="plan-flag">Save $70 a year</span>
+                        <h3 class="plan-name">Annual</h3>
+                        <p class="plan-price">
+                            <span class="plan-cur">$</span><span class="plan-big">350</span><span class="plan-unit">/year</span>
+                        </p>
+                        <p class="plan-was"><s>$420</s><span class="sr-only"> reduced from $420,</span> if you paid monthly</p>
+                        <p class="plan-hook">One invoice a year. No monthly paperwork to chase.</p>
+                        <div class="plan-cta">
+                            <a href="https://app.teamtoolspro.com" class="btn btn-primary btn-full">Start 60-day free trial</a>
+                        </div>
                     </div>
                 </div>
-                
-                <ul class="pricing-features">
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Unlimited community members
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Unlimited weekends
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        All features unlocked
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Unlimited users for your secretariat
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Email support included
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Regular updates & new features
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Secure cloud backup
-                    </li>
-                </ul>
-                
-                <div class="pricing-cta">
-                    <a href="https://app.teamtoolspro.com" class="btn btn-primary btn-large btn-full">Start Your Free 21-Day Trial</a>
-                    <p class="pricing-note">No credit card required. Full access to all features.</p>
+
+                <div class="plan">
+                    <div class="plan-body">
+                        <div class="plan-flag-hole" aria-hidden="true"></div>
+                        <h3 class="plan-name">Monthly</h3>
+                        <p class="plan-price">
+                            <span class="plan-cur">$</span><span class="plan-big">35</span><span class="plan-unit">/month</span>
+                        </p>
+                        <p class="plan-was">Billed every month</p>
+                        <p class="plan-hook">No annual commitment. Cancel whenever your community needs to.</p>
+                        <div class="plan-cta">
+                            <a href="https://app.teamtoolspro.com" class="btn btn-quiet btn-full">Start 60-day free trial</a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-            
+
+            <div class="plan-included">
+                <h3>Both plans include everything</h3>
+                <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Unlimited members</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Unlimited weekends</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Every feature unlocked</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Unlimited secretariat users</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Email support</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Secure daily backups</li>
+                </ul>
+            </div>
+
+            <p class="pricing-note">No credit card required. Every feature is unlocked from the first day of your trial.</p>
+
             <p class="pricing-question">
                 Questions about pricing for your community? <a href="#contact">Get in touch</a>
             </p>
@@ -593,12 +691,12 @@ fbq('track', 'PageView');
                 
                 <div class="faq-item">
                     <h3>What happens after the trial ends?</h3>
-                    <p>After 21 days, your account enters read-only mode. Your data is safe and waiting — simply subscribe to restore full access. We'll send reminders before your trial expires.</p>
+                    <p>After 60 days, your account enters read-only mode. Your data is safe and waiting — simply subscribe to restore full access. We'll send reminders before your trial expires.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>Is there a contract or commitment?</h3>
-                    <p>No long-term contracts. Subscriptions are annual ($500/year) and can be cancelled anytime. If you cancel, you'll retain access through the end of your paid period.</p>
+                    <p>No long-term contracts. Choose $350 a year or $35 a month, and cancel anytime. If you cancel, you'll keep access through the end of the period you've paid for.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -674,7 +772,7 @@ fbq('track', 'PageView');
             <p>Join communities across the country who've traded spreadsheets and paper for a better way.</p>
             
             <a href="https://app.teamtoolspro.com" class="btn btn-primary btn-large">
-                Start Your Free 21-Day Trial
+                Start Your Free 60-Day Trial
                 <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -690,7 +788,7 @@ fbq('track', 'PageView');
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="images/TEAM TOOLS PRO.png" alt="Team Tools Pro" class="footer-logo-img">
+                        <img src="images/favicon-192.png" alt="" width="192" height="192" class="footer-logo-img">
                         <span class="logo-text">Team Tools Pro</span>
                     </div>
                     <p class="footer-tagline">Ministry Simplified</p>
@@ -716,124 +814,18 @@ fbq('track', 'PageView');
                 <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#" data-modal="privacy-modal">Privacy Policy</a></li>
-                        <li><a href="#" data-modal="terms-modal">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Team Tools Pro. All rights reserved.</p>
+                <p>&copy; 2026 Team Tools Pro. All rights reserved.</p>
+                <p class="footer-entity">Team Tools Pro is a product of <strong>The Goggin Group, LLC</strong>, Park Hills, Missouri, USA.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Privacy Policy Modal -->
-    <div class="legal-modal" id="privacy-modal">
-        <div class="legal-modal-overlay"></div>
-        <div class="legal-modal-content">
-            <button class="legal-modal-close" aria-label="Close">&times;</button>
-            <h2>Privacy Policy</h2>
-            <p class="legal-updated">Last updated: January 2025</p>
-            
-            <div class="legal-body">
-                <h3>Introduction</h3>
-                <p>Team Tools Pro ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our service.</p>
-                
-                <h3>Information We Collect</h3>
-                <p><strong>Account Information:</strong> When you create an account, we collect your name, email address, and organization name.</p>
-                <p><strong>Community Data:</strong> You may enter member information including names, contact details, church affiliations, and service history. This data belongs to your organization and is stored securely on your behalf.</p>
-                <p><strong>Usage Data:</strong> We collect basic usage information to improve our service, such as login times and feature usage patterns.</p>
-                
-                <h3>How We Use Your Information</h3>
-                <p>We use your information to:</p>
-                <ul>
-                    <li>Provide and maintain the Team Tools Pro service</li>
-                    <li>Send important service notifications and updates</li>
-                    <li>Respond to your support requests</li>
-                    <li>Improve our service based on usage patterns</li>
-                </ul>
-                
-                <h3>Data Security</h3>
-                <p>We use enterprise-grade security measures including encrypted data transmission (SSL/TLS), encrypted data storage, and secure cloud infrastructure. Your community's data is completely isolated from other organizations.</p>
-                
-                <h3>Data Ownership</h3>
-                <p>Your community data belongs to you. We do not sell, share, or use your member information for any purpose other than providing the Team Tools Pro service. You may export or delete your data at any time.</p>
-                
-                <h3>Third-Party Services</h3>
-                <p>We use trusted third-party services for hosting (cloud infrastructure), payment processing, and email delivery. These providers are contractually bound to protect your data.</p>
-                
-                <h3>Data Retention</h3>
-                <p>We retain your data for as long as your account is active. If you cancel your subscription, your data will be retained in read-only mode for 90 days, after which it may be permanently deleted.</p>
-                
-                <h3>Your Rights</h3>
-                <p>You have the right to access, correct, export, or delete your data. Contact us at support@teamtoolspro.com for any data-related requests.</p>
-                
-                <h3>Changes to This Policy</h3>
-                <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes via email or through the service.</p>
-                
-                <h3>Contact Us</h3>
-                <p>If you have questions about this Privacy Policy, please contact us at support@teamtoolspro.com.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Terms of Service Modal -->
-    <div class="legal-modal" id="terms-modal">
-        <div class="legal-modal-overlay"></div>
-        <div class="legal-modal-content">
-            <button class="legal-modal-close" aria-label="Close">&times;</button>
-            <h2>Terms of Service</h2>
-            <p class="legal-updated">Last updated: January 2025</p>
-            
-            <div class="legal-body">
-                <h3>Agreement to Terms</h3>
-                <p>By accessing or using Team Tools Pro, you agree to be bound by these Terms of Service. If you do not agree, please do not use our service.</p>
-                
-                <h3>Description of Service</h3>
-                <p>Team Tools Pro is a cloud-based management platform designed for three-day ministry communities. The service includes member directory management, team roster tools, candidate registration, meeting check-in, and related features.</p>
-                
-                <h3>Account Registration</h3>
-                <p>You must provide accurate information when creating an account. You are responsible for maintaining the security of your account credentials and for all activities that occur under your account.</p>
-                
-                <h3>Acceptable Use</h3>
-                <p>You agree to use Team Tools Pro only for lawful purposes related to managing your ministry community. You may not:</p>
-                <ul>
-                    <li>Use the service for any illegal or unauthorized purpose</li>
-                    <li>Attempt to gain unauthorized access to our systems</li>
-                    <li>Share your account credentials with unauthorized users</li>
-                    <li>Upload malicious code or interfere with the service</li>
-                </ul>
-                
-                <h3>Subscription and Payment</h3>
-                <p>Team Tools Pro is offered as an annual subscription. Payment is due at the start of each subscription period. Prices may change with 30 days notice before your renewal date.</p>
-                
-                <h3>Free Trial</h3>
-                <p>New accounts receive a 21-day free trial with full access to all features. No credit card is required to start a trial. After the trial period, your account will enter read-only mode until a subscription is activated.</p>
-                
-                <h3>Cancellation</h3>
-                <p>You may cancel your subscription at any time. Upon cancellation, you will retain access through the end of your current paid period. We do not offer prorated refunds for partial subscription periods.</p>
-                
-                <h3>Data and Content</h3>
-                <p>You retain ownership of all data you enter into Team Tools Pro. You are responsible for ensuring you have the right to store and process any personal information you enter, including obtaining appropriate consent from your community members.</p>
-                
-                <h3>Service Availability</h3>
-                <p>We strive to maintain high availability but do not guarantee uninterrupted access. We may occasionally perform maintenance that temporarily limits access to the service.</p>
-                
-                <h3>Limitation of Liability</h3>
-                <p>Team Tools Pro is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the service. Our total liability is limited to the amount you paid for the service in the past 12 months.</p>
-                
-                <h3>Changes to Terms</h3>
-                <p>We may modify these Terms of Service at any time. Continued use of the service after changes constitutes acceptance of the new terms.</p>
-                
-                <h3>Termination</h3>
-                <p>We reserve the right to suspend or terminate accounts that violate these terms or for any other reason at our discretion, with notice when practical.</p>
-                
-                <h3>Contact</h3>
-                <p>Questions about these Terms of Service may be directed to support@teamtoolspro.com.</p>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>
